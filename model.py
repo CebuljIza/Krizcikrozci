@@ -1,53 +1,49 @@
-MREZA = [" ", " ", " ",
-        " ", " ", " ",
-        " ", " ", " "]
+class Igra:
+    mreza = [" ", " ", " ",
+             " ", " ", " ",
+             " ", " ", " "]  
 
-ZMAGA = "W"
+    def displayString(self):
+        print(self.mreza[6] + '|' + self.mreza[7] + '|' + self.mreza[8])
+        print(self.mreza[3] + '|' + self.mreza[4] + '|' + self.mreza[5])
+        print(self.mreza[0] + '|' + self.mreza[1] + '|' + self.mreza[2])
 
-def displayString(mreza):
-    print(mreza[7] + '|' + mreza[8] + '|' + mreza[9])
-    print(mreza[4] + '|' + mreza[5] + '|' + mreza[6])
-    print(mreza[1] + '|' + mreza[2] + '|' + mreza[3])
+    def dodaj_znak(self, indeks, znak):
+        indeks = indeks - 1
+        if 0 <= indeks <= 8 and self.mreza[indeks] == " ":
+            self.mreza[indeks] = znak
 
-def zmaga(mreza):
-    if mreza[7] == mreza[8] == mreza[9] != " ":
-        return ZMAGA
-    
-    if mreza[4] == mreza[5] == mreza[6] != " ":
-        return ZMAGA
+    def zmaga(self):
+        if self.mreza[6] == self.mreza[7] == self.mreza[8] != " ":
+            return True
+        elif self.mreza[3] == self.mreza[4] == self.mreza[5] != " ":
+            return True
+        elif self.mreza[0] == self.mreza[1] == self.mreza[2] != " ":
+            return True
+        elif self.mreza[6] == self.mreza[3] == self.mreza[0] != " ":
+            return True
+        elif self.mreza[7] == self.mreza[4] == self.mreza[1] != " ":
+            return True
+        elif self.mreza[8] == self.mreza[5] == self.mreza[2] != " ":
+            return True
+        elif self.mreza[6] == self.mreza[4] == self.mreza[2] != " ":
+            return True
+        elif self.mreza[8] == self.mreza[4] == self.mreza[0] != " ":
+            return True
+        else:
+            return False
 
-    if mreza[1] == mreza[2] == mreza[3] != " ":
-        return ZMAGA
+    def preveri_indeks(self, indeks):
+        indeks = indeks - 1
+        if 0 <= indeks <= 8:
+            return True
+        else:
+            return False
 
-    if mreza[7] == mreza[4] == mreza[1] != " ":
-        return ZMAGA
-
-    if mreza[8] == mreza[5] == mreza[2] != " ":
-        return ZMAGA
-
-    if mreza[9] == mreza[6] == mreza[3] != " ":
-        return ZMAGA
-
-    if mreza[7] == mreza[5] == mreza[3] != " ":
-        return ZMAGA
-
-    if mreza[9] == mreza[5] == mreza[1] != " ":
-        return ZMAGA
-
-    else:
-        return False
-
-
-def dodaj_znak(mreza, celica, znak):
-    if 1 <= celica <= 9 and znak in 'XO' and not zasedeno(mreza, celica):
-        return True
-
-def zasedeno(mreza, celica):
-    if 1 <= celica <= 9 and celica != " ":
-        return True 
-
-def nova_mreza():
-    return MREZA
-
-
+    def preveri_razpolozljivost(self, indeks):
+        indeks = indeks - 1
+        if self.mreza[indeks] == " ":
+            return True
+        else:
+            return False
 
