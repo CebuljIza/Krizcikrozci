@@ -1,16 +1,18 @@
 class Igra:
     mreza = [" ", " ", " ",
              " ", " ", " ",
-             " ", " ", " "]  
+             " ", " ", " "]
 
     def displayString(self):
         print(self.mreza[6] + '|' + self.mreza[7] + '|' + self.mreza[8])
+        print("-----")
         print(self.mreza[3] + '|' + self.mreza[4] + '|' + self.mreza[5])
+        print("-----")
         print(self.mreza[0] + '|' + self.mreza[1] + '|' + self.mreza[2])
 
     def dodaj_znak(self, indeks, znak):
         indeks = indeks - 1
-        if 0 <= indeks <= 8 and self.mreza[indeks] == " ":
+        if 0 <= indeks <= 8:
             self.mreza[indeks] = znak
 
     def zmaga(self):
